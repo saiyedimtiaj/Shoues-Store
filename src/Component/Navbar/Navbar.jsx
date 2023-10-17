@@ -33,10 +33,8 @@ const Navbar = () => {
     </>
   );
 
-    
-
   return (
-    <div className={`${dark ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <div className={`${dark ? "bg-black text-white" : "bg-white text-black"}`}>
       <div className={`navbar px-5`}>
         <div className="navbar-start">
           <div className="dropdown">
@@ -63,7 +61,11 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <h1 className="text-xl font-bold">Mobile </h1>
+          <img
+            className="h-16"
+            src={dark ? "../assets/logo-1.png" : "../assets/logo.png"}
+            alt=""
+          />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu space-x-3 text-lg font-semibold menu-horizontal px-1">
@@ -71,7 +73,30 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <summary className="btn">Button</summary>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className={`w-10 rounded-full border-4`}>
+                <img src="/assets/user.jpg" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ${dark ? 'text-white bg-black' : 'text-black bg-white'}`}
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
