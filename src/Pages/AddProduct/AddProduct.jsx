@@ -1,8 +1,26 @@
 const AddProduct = () => {
+
+    const handleAddProduct = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const image = form.image.value;
+        const brand = form.brand.value;
+        const type = form.type.value;
+        const price = form.price.value;
+        const description = form.description.value;
+        const rating = form.rating.value;
+        if(rating > 5 || rating < 1 ){
+            alert('ratting not valide')
+        }
+        const product = {name,image,brand,type,price,description,rating};
+        console.log(product);
+    }
+
   return (
     <div className="pb-14">
       <h1 className="text-center text-4xl font-bold mt-8 mb-5">Add Product</h1>
-      <form className="flex flex-col justify-center mx-auto max-w-lg px-5">
+      <form onSubmit={handleAddProduct} className="flex flex-col justify-center mx-auto max-w-lg px-5">
         <input
           type="text"
           name="name"

@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { FiMoon, FiSun } from "react-icons/fi";
 import Header from "../../Component/Header/Header";
+import Brands from "../../Component/Brands/Brands";
 
 const Home = () => {
   const { dark, setDark } = useContext(AuthContext);
-  console.log(dark);
   return (
     <div className={`${dark ? "bg-black " : "text-black"}`}>
       <button
@@ -15,6 +15,7 @@ const Home = () => {
         {dark ? <FiSun/> : <FiMoon/>}
       </button>
       <Header/>
+      <Brands/>
     </div>
   );
 };
