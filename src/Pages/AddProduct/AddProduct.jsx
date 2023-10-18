@@ -10,11 +10,29 @@ const AddProduct = () => {
         const price = form.price.value;
         const description = form.description.value;
         const rating = form.rating.value;
+        if(brand !== 'nike' && brand !== 'adidas' && brand !== 'gucci' && brand !== 'puma' && brand !=='zara' && brand !=='fila'){
+            return alert('breand not metched')
+        }
         if(rating > 5 || rating < 1 ){
             alert('ratting not valide')
         }
         const product = {name,image,brand,type,price,description,rating};
-        console.log(product);
+        
+        fetch('http://localhost:5000/products',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(product)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.insertedId){
+                alert('product added')
+                form.reset()
+            }
+        })
     }
 
   return (
@@ -24,35 +42,41 @@ const AddProduct = () => {
         <input
           type="text"
           name="name"
+          required
           placeholder="Product Name"
           className="border-b-2 border-black px-3 py-2 focus:outline-none"
         />
         <input
           type="url"
           name="image"
+          required
           placeholder="Image Url"
           className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
         />
         <input
           type="text"
           name="brand"
+          required
           placeholder="Brand Name"
           className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
         />
         <input
           type="text"
           name="type"
+          required
           placeholder="Product Type"
           className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
         />
         <input
           type="number"
+          required
           name="price"
           placeholder="Product Price"
           className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
         />
         <input
           type="text"
+          required
           name="description"
           placeholder="Sort Description"
           className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
@@ -60,6 +84,7 @@ const AddProduct = () => {
         <input
           type="number"
           name="rating"
+          required
           placeholder="Enter Rating"
           className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
         />

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Component/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthProvider";
+import Footer from "../Component/Footer/Footer";
 
 
 const MainLayout = () => {
@@ -10,6 +11,7 @@ const MainLayout = () => {
         <div className={dark ? 'bg-black text-white':'bg-white text-black'}>
             <Navbar/>
             <Outlet/>
+            <Footer/>
         </div>
     );
 };
