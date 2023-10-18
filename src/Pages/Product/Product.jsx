@@ -1,5 +1,5 @@
 import { Box, Rating } from "@mui/material";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Product = () => {
   const product = useLoaderData();
@@ -26,9 +26,11 @@ const Product = () => {
           <button className="px-6 py-2 bg-black text-white rounded-sm font-medium mt-3 mb-5">
             Add To Cart
           </button>
+          <Link to={`/update/${product._id}`}>
           <button className="px-6 ml-3 py-2 bg-blue-600 text-white rounded-sm font-medium mt-3 mb-5">
             Update
           </button>
+          </Link>
         </div>
       </div>
     </div>

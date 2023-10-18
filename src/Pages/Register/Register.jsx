@@ -2,6 +2,28 @@ import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+
+  const handleRegister = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const image = form.image.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const terms = form.terms.checked;
+
+    if(password.length < 6){
+      return alert('6 cheracter')
+    }
+    if(!/[A-Z]/.test(password)){
+      return alert('not uppercase')
+    }
+    // if(!/[@#$%^!&*()_+-=]/.test(password)){
+    //   return alert('not spacel')
+    // }
+    
+  }
+
     return (
         <div className="px-5 pb-8">
       <div className="max-w-lg mx-auto shadow-xl mt-4 bg-[#1F2937] text-white rounded-lg px-8 py-6">
@@ -17,7 +39,7 @@ const Register = () => {
           <span>or</span>
           <p className="border border-[#374151] w-full"></p>
         </div>
-        <form>
+        <form onSubmit={handleRegister}>
           <div>
             <label htmlFor="name">Enter Your Name</label> <br />
             <input

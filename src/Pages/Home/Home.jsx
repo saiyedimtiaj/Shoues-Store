@@ -3,6 +3,8 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { FiMoon, FiSun } from "react-icons/fi";
 import Header from "../../Component/Header/Header";
 import Brands from "../../Component/Brands/Brands";
+import Badze from "../../Component/Badze/Badze";
+import Highlight from "../../Component/Highlight/Highlight";
 
 const Home = () => {
   const { dark, setDark } = useContext(AuthContext);
@@ -16,6 +18,8 @@ const Home = () => {
       </button>
       <Header/>
       <Brands/>
+      <Badze/>
+      <Highlight/>
     </div>
   );
 };
