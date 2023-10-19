@@ -1,7 +1,14 @@
+import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Register = () => {
+
+  const {register,updateUser,google} = useContext(AuthContext);
+  const navegate = useNavigate();
+  const location = useLocation()
 
   const handleRegister = event => {
     event.preventDefault();
@@ -11,24 +18,53 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const terms = form.terms.checked;
+    console.log(name,email,image,password,terms);
 
     if(password.length < 6){
       return alert('6 cheracter')
     }
-    if(!/[A-Z]/.test(password)){
+    else if(!/[A-Z]/.test(password)){
       return alert('not uppercase')
     }
-    // if(!/[@#$%^!&*()_+-=]/.test(password)){
-    //   return alert('not spacel')
-    // }
+    else if(!/[!@#$%^&*]/.test(password)) {
+      return alert("password should contain atleast one number and one special character");
+  }
+
+  register(email,password)
+  .then(res=>{
+    console.log(res.user);
+    updateUser(name,image)
+    .then(()=>{
+      navegate(location.state ? location.state : '/');
+      return toast.success('Register Successfully ')
+    })
+    .catch(err=>{
+      return toast.error(err.message);
+    })
+  })
+  .catch(err=>{
+    console.log(err.message);
+  })
     
   }
 
+  const handleGoogle = () => {
+    google()
+    .then(()=>{
+      navegate(location.state ? location.state : '/');
+      return toast.success('Register wth Google Successfully ')
+    })
+    .catch(err=>{
+      return toast.error(err.message);
+    })
+  }
+
     return (
-        <div className="px-5 pb-8">
-      <div className="max-w-lg mx-auto shadow-xl mt-4 bg-[#1F2937] text-white rounded-lg px-8 py-6">
+        <div className="px-5 pb-8 bg-[#27223E]">
+          <Toaster position="top-center" reverseOrder={false} />
+      <div className="max-w-lg mx-auto shadow-xl bg-[#1F2937] text-white rounded-lg px-8 py-6">
         <h1 className="text-3xl font-semibold">Create a new Account</h1>
-        <button
+        <button onClick={handleGoogle}
           className="border-[#374151] border-2 flex items-center gap-2 px-4 py-2 rounded-md my-6"
         >
           <FaGoogle />

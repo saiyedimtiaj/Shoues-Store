@@ -1,8 +1,15 @@
+import { useContext } from "react";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Footer = () => {
+  const { dark } = useContext(AuthContext);
   return (
-    <footer className="bg-black text-white pt-14 pb-3 mt-10 px-5">
+    <footer
+      className={`${
+        dark ? "bg-black text-white " : "bg-[#EEEDEB] text-black"
+      } pt-14 pb-3 px-5`}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
         <div>
           <div className="font-oswald font-medium uppercase text-sm cursor-pointer">
@@ -25,19 +32,19 @@ const Footer = () => {
           <div className="font-oswald font-medium uppercase text-sm">
             get help
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Order Status
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Delivery
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Returns
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Payment Options
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Contact Us
           </div>
         </div>
@@ -45,16 +52,16 @@ const Footer = () => {
           <div className="font-oswald font-medium uppercase text-sm">
             About nike
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             News
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Careers
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Investors
           </div>
-          <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+          <div className="text-sm cursor-pointer">
             Sustainability
           </div>
         </div>
@@ -75,23 +82,23 @@ const Footer = () => {
       </div>
       <div className="flex justify-between mt-10 flex-col md:flex-row gap-[10px] md:gap-0">
         {/* LEFT START */}
-        <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer text-center md:text-left">
+        <div className={`${dark ? 'text-white' : 'text-black'}text-[12px] cursor-pointer text-center md:text-left`}>
           © 2023 Nike, Inc. All Rights Reserved
         </div>
         {/* LEFT END */}
 
         {/* RIGHT START */}
         <div className="flex gap-2 md:gap-5 text-center md:text-left flex-wrap justify-center">
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+          <div className={`${dark ? 'text-white' : 'text-black'}text-[12px] cursor-pointer`}>
             Guides
           </div>
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+          <div className={`${dark ? 'text-white' : 'text-black'}text-[12px] cursor-pointer`}>
             Terms of Sale
           </div>
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+          <div className={`${dark ? 'text-white' : 'text-black'}text-[12px] cursor-pointer`}>
             Terms of Use
           </div>
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+          <div className={`${dark ? 'text-white' : 'text-black'}text-[12px] cursor-pointer`}>
             Privacy Policy
           </div>
         </div>

@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "name":"nike",
+        "img":"../assets/brand1.jpg",
+        "dark":"../assets/nike.png",
+        "light":"../assets/pngwing.cjjkkom.png"
+    },
+    {
+        "id":2,
+        "name":"adidas",
+        "img":"../assets/brand2.jpg",
+        "dark":"../assets/adidas.png",
+        "light":"../assets/pngwing.com(1).png"
+    },
+    {
+        "id":3,
+        "name":"puma",
+        "img":"../assets/brand3.jpg",
+        "dark":"../assets/puma.png",
+        "light":"../assets/pngwing.com(2).png"
+    },
+    {
+        "id":4,
+        "name":"zara",
+        "img":"../assets/brand4.jpg",
+        "dark":"../assets/[CITYPNG.COM]Zara White Logo Download PNG - 2000x2000.png",
+        "light":"../assets/pngwing.com.png"
+    },
+    {
+        "id":5,
+        "name":"gucci",
+        "img":"../assets/brand5.jpg",
+        "dark":"../assets/gucci.png",
+        "light":"../assets/pngwing.com(4).png"
+    },
+    {
+        "id":6,
+        "name":"fila",
+        "img":"../assets/brand6.jpg",
+        "dark":"../assets/fila.png",
+        "light":"../assets/pngwing.com(3).png"
+    }
+]

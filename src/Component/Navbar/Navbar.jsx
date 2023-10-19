@@ -1,9 +1,21 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Navbar = () => {
-  const { dark } = useContext(AuthContext);
+  const { dark, user, logOut } = useContext(AuthContext);
+
+
+  const handleLogout = () => {
+    logOut()
+    .then(()=>{
+      return toast.success('Logout Successfully ')
+    })
+    .catch(err=>{
+      return toast.error(err.message);
+    })
+  }
   const links = (
     <>
       <NavLink
@@ -23,7 +35,7 @@ const Navbar = () => {
         Add Product
       </NavLink>
       <NavLink
-        to="/cart"
+        to={`/cart/${user?.email}`} 
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "text-red-600" : ""
         }
@@ -35,6 +47,7 @@ const Navbar = () => {
 
   return (
     <div className={`${dark ? "bg-black text-white" : "bg-white text-black"}`}>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className={`navbar px-5`}>
         <div className="navbar-start">
           <div className="dropdown">
@@ -63,7 +76,7 @@ const Navbar = () => {
           </div>
           <img
             className="h-16"
-            src={dark ? "../assets/logo-1.png" : "../assets/logo.png"}
+            src={dark ? "https://i.ibb.co/XthVj42/logo-1.png" : "https://i.ibb.co/f0BqS44/logo-2.png"}
             alt=""
           />
         </div>
@@ -76,7 +89,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className={`w-10 rounded-full border-4`}>
-                <img src="/assets/user.jpg" />
+                <img src={user ? user?.photoURL : `/assets/user.jpg`} />
               </div>
             </label>
             <ul
@@ -85,15 +98,11 @@ const Navbar = () => {
             >
               <li>
                 <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
+                  {user ? user?.displayName : 'poofile'}
                 </a>
               </li>
               <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
+                {user ? <button onClick={handleLogout}>Log out</button> : <Link to='/login'>Log In</Link>}
               </li>
             </ul>
           </div>

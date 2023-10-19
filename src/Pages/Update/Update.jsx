@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 
 const Update = () => {
     const loader = useLoaderData();
     console.log(loader);
+    const {dark} = useContext(AuthContext)
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -28,72 +32,108 @@ const Update = () => {
         .then(data=>{
             console.log(data);
             if(data.modifiedCount > 0){
-                alert('updated')
+              toast.success('Product updated Sucessfully')
             }
         })
         .catch(err=>{
-            console.log(err.message);
+          return toast.error(err.message);
         })
     }
 
     return (
         <div className="pb-14">
+          <Toaster position="top-center" reverseOrder={false} />
         <h1 className="text-center text-4xl font-bold mt-8 mb-5">Update Product</h1>
         <form onSubmit={handleUpdate}
           className="flex flex-col justify-center mx-auto max-w-lg px-5"
         >
           <input
-            type="text"
-            name="name"
-            required
-            defaultValue={loader.name}
-            className="border-b-2 border-black px-3 py-2 focus:outline-none"
-          />
-          <input
-            type="url"
-            name="image"
-            required
-            defaultValue={loader.image}
-            className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
-          />
-          <input
-            type="text"
-            name="brand"
-            required
-            defaultValue={loader.brand}
-            className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
-          />
-          <input
-            type="text"
-            name="type"
-            required
-            defaultValue={loader.type}
-            className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
-          />
-          <input
-            type="number"
-            required
-            name="price"
-            defaultValue={loader.price}
-            className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
-          />
-          <input
-            type="text"
-            required
-            name="description"
-            defaultValue={loader.description}
-            className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
-          />
-          <input
-            type="number"
-            name="rating"
-            required
-            defaultValue={loader.rating}
-            className="border-b-2 border-black mt-3 px-3 py-2 focus:outline-none"
-          />
+          type="text"
+          name="name"
+          required
+          defaultValue={loader.name}
+          className={`${
+            dark
+              ? "border-white bg-black text-white"
+              : "border-black bg-white text-black"
+          } border-b-2 border-black px-3 py-2 focus:outline-none`}
+        />
+        <input
+          type="url"
+          name="image"
+          required
+          defaultValue={loader.image}
+          className={`${
+            dark
+              ? "border-white bg-black text-white"
+              : "border-black bg-white text-black"
+          } border-b-2 mt-3 px-3 py-2 focus:outline-none`}
+        />
+        <select
+          name="brand"
+          id="cars"
+          className={`${
+            dark
+              ? "border-white bg-black text-white"
+              : "border-black bg-white text-black"
+          } border-b-2 mt-3 px-3 py-2 focus:outline-none`}
+          required
+          defaultValue={loader.brand}
+        >
+          <option value="nike">Nike</option>
+          <option value="adidas">Adidas</option>
+          <option value="puma">Puma</option>
+          <option value="zara">Zara</option>
+          <option value="gucci">Gucci</option>
+          <option value="fila">fila</option>
+        </select>
+        <input
+          type="text"
+          name="type"
+          required
+          defaultValue={loader.type}
+          className={`${
+            dark
+              ? "border-white bg-black text-white"
+              : "border-black bg-white text-black"
+          } border-b-2 mt-3 px-3 py-2 focus:outline-none`}
+        />
+        <input
+          type="number"
+          required
+          name="price"
+          defaultValue={loader.price}
+          className={`${
+            dark
+              ? "border-white bg-black text-white"
+              : "border-black bg-white text-black"
+          } border-b-2 mt-3 px-3 py-2 focus:outline-none`}
+        />
+        <input
+          type="text"
+          required
+          name="description"
+          defaultValue={loader.description}
+          className={`${
+            dark
+              ? "border-white bg-black text-white"
+              : "border-black bg-white text-black"
+          } border-b-2 mt-3 px-3 py-2 focus:outline-none`}
+        />
+        <input
+          type="number"
+          name="rating"
+          required
+          defaultValue={loader.rating}
+          className={`${
+            dark
+              ? "border-white bg-black text-white"
+              : "border-black bg-white text-black"
+          } border-b-2 mt-3 px-3 py-2 focus:outline-none`}
+        />
           <input
             type="submit"
-            value="Add Product"
+            value="Update Product"
             className="bg-blue-600 text-white font-semibold mt-3 rounded-md cursor-pointer py-2"
           />
         </form>
