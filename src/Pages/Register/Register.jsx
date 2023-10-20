@@ -21,13 +21,13 @@ const Register = () => {
     console.log(name,email,image,password,terms);
 
     if(password.length < 6){
-      return toast.error('6 cheracter')
+      return toast.error('password must be 6 cheracter or longer')
     }
     else if(!/[A-Z]/.test(password)){
-      return toast.error('not uppercase')
+      return toast.error('password must has a uppercase')
     }
     else if(!/[!@#$%^&*]/.test(password)) {
-      return toast.error("password should contain atleast one number and one special character");
+      return toast.error("password should contain atleast one special character");
   }
 
   register(email,password)
