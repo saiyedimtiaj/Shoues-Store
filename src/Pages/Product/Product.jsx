@@ -14,7 +14,7 @@ const Product = () => {
     fetch(`https://assingment-10-server-eta.vercel.app/cart/${user.email}`)
     .then(res=>res.json())
     .then(data=>{
-      console.log(data);
+      setCartItem(data);
     })
   },[user.email])
 

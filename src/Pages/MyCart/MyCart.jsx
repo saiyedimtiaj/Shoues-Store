@@ -10,7 +10,7 @@ const MyCart = () => {
     const [cartItem,setCartItem] = useState(loader);
 
     const handleDelete = (id) => {
-        fetch(`https://assingment-10-server-eta.vercel.app/cart/${user.email}/${id}`,{
+        fetch(`https://assingment-10-server-4n18d7d9w-imtiajs-projects.vercel.app/cart/${user.email}/${id}`,{
             method:'DELETE'
         })
         .then(res=>res.json())
