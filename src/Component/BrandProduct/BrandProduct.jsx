@@ -1,12 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
-const BrandProduct = ({ products }) => {
-
+const BrandProduct = () => {
+  const products = useLoaderData()
   const {dark} = useContext(AuthContext)
 
-  // console.log(products);
   return (
     <div className="container mx-auto px-5 mt-9">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

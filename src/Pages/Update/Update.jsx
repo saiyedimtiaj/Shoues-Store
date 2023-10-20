@@ -21,7 +21,7 @@ const Update = () => {
         const rating = form.rating.value;
         const update = {name,image,brand,type,price,description,rating}
 
-        fetch(`http://localhost:5000/products/${loader.brand}/${loader._id}`,{
+        fetch(`https://assingment-10-server-eta.vercel.app/${loader.brand}/${loader._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

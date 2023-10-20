@@ -21,7 +21,7 @@ const Routes = createBrowserRouter([
         {
           path: "/",
           element: <Home></Home>,
-          loader:()=>fetch('../data/category.json')
+          loader:()=>fetch('/data/category.json')
         },
         {
           path:'/product',
@@ -30,22 +30,22 @@ const Routes = createBrowserRouter([
         {
           path:'/cart/:email',
           element:<PrivateRoute><MyCart/></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/cart/${params.email}`)
+          loader:({params})=>fetch(`https://assingment-10-server-eta.vercel.app/cart/${params.email}`)
         },
         {
-          path:'/brand/:brand',
+          path:'/products/:brand',
           element:<PrivateRoute><Brand/></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.brand}`)
+          loader:({params})=>fetch(`https://assingment-10-server-eta.vercel.app/products/${params.brand}`)
         },
         {
           path:'/products/:brand/:id',
           element:<PrivateRoute><Product/></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.brand}/${params.id}`)
+          loader:({params})=>fetch(`https://assingment-10-server-eta.vercel.app/products/${params.brand}/${params.id}`)
         },
         {
           path:'/update/:id',
           element:<PrivateRoute><Update/></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.brand}/${params.id}`)
+          loader:({params})=>fetch(`https://assingment-10-server-eta.vercel.app/products/${params.brand}/${params.id}`)
         },
         {
           path:'/register',

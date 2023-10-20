@@ -10,25 +10,24 @@ const Brands = () => {
 
   const handleBrand = (_brand) => {
     const brandMatch = loader?.find((product) => product.brand === _brand);
-    navegate(`/brand/${brandMatch?.brand}`);
+    navegate(`/products/${brandMatch?.brand}`);
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://assingment-10-server-eta.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         setLoader(data);
       });
   }, []);
 
-  // console.log(category);
 
   return (
     <div className="py-7 grid md:grid-cols-3 grid-cols-2 gap-5 items-center max-w-3xl mx-auto px-5">
-      {category && category?.map((category) => (
+      {category &&  category?.map((category) => (
         <div
           key={category.id}
-          onClick={() => handleBrand(category.name)}
+          onClick={() => handleBrand(category?.name)}
           className={`${dark ? 'border-blue-800' : 'border-black'} flex justify-center md:w-60 cursor-pointer md:h-60 w-32 h-32 items-center relative border-2`}
         >
           <img className={`bg-gray-200 h-full w-full ${dark ? 'opacity-30' : 'opacity-70'}`} src={category.img} alt="" />

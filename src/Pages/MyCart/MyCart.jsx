@@ -8,10 +8,9 @@ const MyCart = () => {
     const loader = useLoaderData();
     const {user} = useContext(AuthContext)
     const [cartItem,setCartItem] = useState(loader);
-    const {loading} = useContext(AuthContext)
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/cart/${user.email}/${id}`,{
+        fetch(`https://assingment-10-server-eta.vercel.app/cart/${user.email}/${id}`,{
             method:'DELETE'
         })
         .then(res=>res.json())

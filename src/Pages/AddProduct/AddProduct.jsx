@@ -20,7 +20,7 @@ const AddProduct = () => {
     }
     const product = { name, image, brand, type, price, description, rating };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://assingment-10-server-eta.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

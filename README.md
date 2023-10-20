@@ -1,8 +1,11 @@
-# React + Vite
+Live Link : https://creative-sunburst-b93a3c.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. in my this project i create brand section a user when click a brand user go to this brand page;
 
-Currently, two official plugins are available:
+2. i create page for each product, when a user try to go see product details he/she can go the product details page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3.I create firebase authentation, a user canot go private route page,if he/she want to go private route page he/she go to log in first.
+
+4. a user can add product in cart the product is save in cart section and he can remove the product.
+
+5. a user can add product form add product page.
