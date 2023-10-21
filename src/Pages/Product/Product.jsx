@@ -1,5 +1,5 @@
 import { Box, Rating } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
@@ -7,17 +7,6 @@ import { Toaster, toast } from "react-hot-toast";
 const Product = () => {
   const product = useLoaderData();
   const {dark,user} = useContext(AuthContext);
-  const [cartItem,setCartItem] = useState([])
-
-
-  useEffect(()=>{
-    fetch(`https://assingment-10-server-eta.vercel.app/cart/${user.email}`)
-    .then(res=>res.json())
-    .then(data=>{
-      setCartItem(data);
-    })
-  },[user.email])
-
   
   const handleAddtocart = () => {
     const email = user.email

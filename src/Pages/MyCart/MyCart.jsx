@@ -6,11 +6,11 @@ import { Toaster, toast } from "react-hot-toast";
 
 const MyCart = () => {
     const loader = useLoaderData();
-    const {user} = useContext(AuthContext)
+    const {user,dark} = useContext(AuthContext)
     const [cartItem,setCartItem] = useState(loader);
 
     const handleDelete = (id) => {
-        fetch(`https://assingment-10-server-4n18d7d9w-imtiajs-projects.vercel.app/cart/${user.email}/${id}`,{
+        fetch(`https://assingment-10-server-eta.vercel.app/cart/${user.email}/${id}`,{
             method:'DELETE'
         })
         .then(res=>res.json())
@@ -29,7 +29,7 @@ const MyCart = () => {
             <Toaster position="top-center" reverseOrder={false} />
             {cartItem.length === 0 ? <div className="min-h-[90vh]">
                 <p className="text-6xl font-medium">No Content Yet!</p>
-            </div> : cartItem?.map(item=><div key={item?._id} className="flex flex-wrap gap-5 items-center justify-between px-5 py-4 border-2 border-black my-4">
+            </div> : cartItem?.map(item=><div key={item?._id} className={`flex flex-wrap gap-5 items-center justify-between px-5 py-4 border-2 my-4 ${dark ? '' : 'border-black' } `}>
                     <img className="w-28 h-28" src={item?.image} alt="" />
                     <h1 className="text-xl font-semibold">{item?.name}</h1>
                     <p className="font-bold text-2xl">${item?.price}</p>
