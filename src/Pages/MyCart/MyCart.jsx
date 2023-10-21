@@ -29,7 +29,7 @@ const MyCart = () => {
             <Toaster position="top-center" reverseOrder={false} />
             {cartItem.length === 0 ? <div className="min-h-[90vh]">
                 <p className="text-6xl font-medium">No Content Yet!</p>
-            </div> : cartItem?.map(item=><div key={item?._id} className={`flex flex-wrap gap-5 items-center justify-between px-5 py-4 border-2 my-4 ${dark ? '' : 'border-black' } `}>
+            </div> : cartItem?.map(item=><div key={item?._id} className={`flex flex-wrap gap-5 items-center justify-between px-5 py-4 border-2 my-4 ${dark ? '' : 'border-black '} `}>
                     <img className="w-28 h-28" src={item?.image} alt="" />
                     <h1 className="text-xl font-semibold">{item?.name}</h1>
                     <p className="font-bold text-2xl">${item?.price}</p>

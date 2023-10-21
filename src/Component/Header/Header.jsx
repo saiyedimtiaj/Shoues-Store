@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import './header.css'
 import { AuthContext } from "../../Context/AuthProvider";
 
 
@@ -13,7 +14,7 @@ const Header = () => {
              <p className="text-lg mt-3 font-medium">The best walking sneakers.</p>
         </div>
         <div className="px-4">
-             <img className="lg:h-96 w-full transition-all hover:translate-x-8" src="../assets/H6-rev-img-02.png" alt="" />
+             <img className="lg:h-96 w-full transition-all animate" src="../assets/H6-rev-img-02.png" alt="" />
         </div>
      </div>
         </div>

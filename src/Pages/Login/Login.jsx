@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
-  const { login, google } = useContext(AuthContext);
+  const { login, google, dark } = useContext(AuthContext);
   const navegate = useNavigate();
   const location = useLocation();
 
@@ -34,25 +34,25 @@ const Login = () => {
   };
 
   return (
-    <section className="bg-[#111827] py-8 flex items-center justify-center">
+    <section className={`py-8 flex items-center justify-center`}>
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="bg-[#1F2937] flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+      <div className={`${dark ? 'bg-[#1F2937]' : 'bg-[#EEEDEB]'} flex rounded-2xl shadow-lg max-w-3xl p-5 items-center`}>
         <div className="md:w-1/2 px-8 md:px-16">
-          <h2 className="font-bold text-2xl text-white">Login</h2>
-          <p className="text-xs mt-4 text-white">
+          <h2 className={`font-bold text-2xl ${dark ? 'text-white' : 'text-black'}`}>Login</h2>
+          <p className={`text-xs mt-4 ${dark ? 'text-white' : 'text-black'}`}>
             If you are already a member, easily log in
           </p>
 
           <form onSubmit={handleLogin} className="flex flex-col gap-4">
             <input
-              className="p-2 mt-8 bg-[#374151] px-4 rounded-xl border"
+              className={`p-2 mt-8 ${dark ? 'bg-[#374151]' : 'bg-white' } px-4 rounded-xl border`}
               type="email"
               name="email"
               placeholder="Email"
             />
             <div>
               <input
-                className="p-2 rounded-xl bg-[#374151] px-4 border w-full"
+                className={`p-2 rounded-xl ${dark ? 'bg-[#374151]' : 'bg-white' } px-4 border w-full`}
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -101,7 +101,7 @@ const Login = () => {
             Login with Google
           </button>
 
-          <div className="mt-3 text-xs flex justify-between items-center text-white">
+          <div className={`mt-3 text-xs flex justify-between items-center ${dark ? 'text-white' : 'text-black'}`}>
             <p>Dont have an account?</p>
             <Link to="/register">
               {" "}
